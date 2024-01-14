@@ -1,0 +1,76 @@
+{
+	"extends": [
+		"airbnb-base"
+	],
+	"env": {
+		"es6": true,
+		"browser": false,
+		"node": true,
+		"mocha": true
+	},
+	"rules": {
+		"quotes": ["error", "single"],
+		"semi": ["error", "never"],
+		"no-multi-assign": "off",
+		"global-require": "off",
+		"camelcase": "off",
+		"import/no-dynamic-require": "off",
+		"radix": "off",
+		"import/no-extraneous-dependencies": "off",
+		"arrow-parens": [
+			"error",
+			"as-needed",
+			{
+				"requireForBlockBody": true
+			}
+		],
+		"node/no-unsupported-features/es-syntax": "off",
+		"no-restricted-syntax": "warn",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"object-curly-spacing": [
+			"error",
+			"never"
+		],
+		"object-curly-newline": [
+			"error",
+			{
+				"consistent": true
+			}
+		],
+		"no-tabs": "off",
+		"comma-dangle": [
+			"warn",
+			"never"
+		],
+		"no-trailing-spaces": [
+			"error",
+			{
+				"skipBlankLines": true
+			}
+		],
+		"import/prefer-default-export": "off",
+		"max-len": "off",
+		"no-unused-vars": "warn",
+		"no-underscore-dangle": "off",
+		"no-param-reassign": "off",
+		"no-await-in-loop": "off",
+		"import/no-named-as-default": "off",
+		"import/extensions": "off",
+		"newline-per-chained-call": "off",
+		"no-continue": "off",
+		"linebreak-style": [
+			"error",
+			"unix"
+		],
+		"import/no-unresolved": [2, { "ignore": ["@\/"] }]
+	},
+	"parserOptions": {
+		"ecmaVersion": 2020
+	}
+}
