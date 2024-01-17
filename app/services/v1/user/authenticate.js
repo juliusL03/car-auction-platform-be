@@ -30,10 +30,9 @@ const authenticate = async (payload) => {
 		}
 
 		const data = {
-			firstName: user.first_name,
-			lastName: user.last_name,
+			name: user.full_name,
 			email: user.email,
-			userExtId: user._id,
+			_id: user._id,
 			admin: user.user_type === 'admin'
 		}
 

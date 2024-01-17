@@ -8,7 +8,7 @@ export const update = async (req, res) => {
 	const errLocation = `${__filename} #CtrUpdateProduct()`
 
 	try {
-		const payload = {filter: {_id: req.params.id}, data: {...req.body}}
+		const payload = req.body
 		const response = await services.updateProduct(payload)
 
 		const {status_code: statusCode, message, data, error} = response

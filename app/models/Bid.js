@@ -7,6 +7,10 @@ export const bidSchema = new Schema(
 			ref: 'Product',
 			required: [true, 'Field `product` is required']
 		},
+		product: {
+			type: Schema.Types.ObjectId,
+			ref: 'Product'
+		},
 		user_id: {
 			type: Schema.Types.ObjectId,
 			ref: 'User',

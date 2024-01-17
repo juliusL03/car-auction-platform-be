@@ -1,6 +1,7 @@
 import {fileURLToPath} from 'url'
 import mongoose from 'mongoose'
 import Bid from '../../../models/Bid'
+import Product from '../../../models/Product'
 
 const __filename = fileURLToPath(import.meta.url)
 
@@ -13,13 +14,24 @@ const createUpdateBid = async (payload) => {
 	try {
 		const {filter, update} = payload
 
+		// check current bid
+		const product = await Product.findOne({_id: filter.product_id})
+  
+		if (parseInt(update.amount) <= parseInt(product.current_bid)) {
+			return {status_code: 400, error: 'Sorry, somebody has bid quicker with this price. Please check the new price'}
+		}
+	
 		const response = await Bid.findOneAndUpdate(filter, update, {
 			new: true,
 			upsert: true
 		})
 
-		const data = await Bid.updateOne(filter, {current_bid: update.amount})
-		console.log('#createUpdateBid: ', data)
+		await Product.findOneAndUpdate(
+			{_id: filter.product_id},
+			{current_bid: update.amount},
+			{new: true,
+				upsert: true}
+		)
 
 		session.commitTransaction()
 		session.endSession()

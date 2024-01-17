@@ -2,7 +2,12 @@ import mongoose, {model, Schema} from 'mongoose'
 
 export const productSchema = new Schema(
 	{
-		model: {
+		user_id: {
+			type: Schema.Types.ObjectId,
+			ref: 'User',
+			required: [true, 'Field `user` is required']
+		},
+		brand_name: {
 			type: String,
 			required: [true, 'Field `model` is required']
 		},
@@ -17,7 +22,7 @@ export const productSchema = new Schema(
 			type: String
 		},
 		images: {
-			type: [String]
+			type: String
 		},
 		status: {
 			type: String,
@@ -27,7 +32,7 @@ export const productSchema = new Schema(
 			type: Number
 		},
 		current_bid: {
-			type: Number
+			type: String
 		},
 		expiry_date: {
 			type: Date

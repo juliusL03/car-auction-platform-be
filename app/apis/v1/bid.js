@@ -7,6 +7,6 @@ const router = express.Router()
 
 router.post('/create', protectRoute, BidController.create)
 router.get('/:id', BidController.retrieve)
-router.get('/filter/:page/:limit/:description_like/:sort/:order', BidController.list)
+router.get('/', BidController.list)
 
 export default router

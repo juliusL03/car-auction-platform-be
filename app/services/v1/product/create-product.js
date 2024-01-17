@@ -11,12 +11,12 @@ const createProduct = async (payload) => {
 	session.startTransaction()
 
 	try {
-		const {name} = payload
+		const {brand_name} = payload
 
-		const exist = await Product.findOne({name, deleted_at: null})
+		const exist = await Product.findOne({brand_name, deleted_at: null})
 
 		if (exist) {
-			const error = `Name "${name}" was already in used`
+			const error = `Name "${brand_name}" was already in used`
 			return {status_code: 400, error}
 		}
 

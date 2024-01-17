@@ -8,8 +8,7 @@ const retrieveBid = async (payload) => {
 
 	try {
 		const response = await Bid.findOne({
-			_id: payload.id,
-			deleted_at: null
+			_id: payload.id
 		})
 
 		if (!response) {

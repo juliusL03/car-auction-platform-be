@@ -8,7 +8,7 @@ export const list = async (req, res) => {
 	const errLocation = `${__filename} #CtrGetListBid()`
 
 	try {
-		const response = await services.getListBid({...req.params})
+		const response = await services.getListBid({...req.query})
 
 		const {status_code: statusCode, message, data, error} = response
 		

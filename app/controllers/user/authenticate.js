@@ -14,7 +14,6 @@ export const authenticate = async (req, res) => {
 	try {
 		const response = await services.authenticate(req.body)
 
-		console.log('res::', response)
 		const {status_code: statusCode, message, data: user} = response
 
 		if (statusCode !== 200) {

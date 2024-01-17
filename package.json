@@ -8,7 +8,10 @@
    "start": "node --experimental-specifier-resolution=node -r dotenv/config ./app/index.js",
    "start:dev": "npm run lint && nodemon --experimental-specifier-resolution=node --legacy-watch --trace-warnings -r dotenv/config ./app/index.js",
    "lint": "eslint ./app/**",
-   "lint:fix": "eslint ./app/** --fix"
+   "lint:fix": "eslint ./app/** --fix",
+   "setup:docker": "export $(grep -v '^#' .env | xargs)} && docker compose up -d --build && unset $(grep -v '^#' .env | awk 'BEGIN { FS = \"=\" } ; { print $1 }')",
+   "setup:docker:test": "export $(grep -v '^#' .env.test | xargs)} && docker compose up -d --build && unset $(grep -v '^#' .env.test | awk 'BEGIN { FS = \"=\" } ; { print $1 }')",
+   "destroy:docker": "docker compose down --rmi local --volumes"
   },
   "author": "julius legaspi",
   "license": "MIT",
